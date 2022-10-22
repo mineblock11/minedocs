@@ -488,7 +488,7 @@ a:hover {
   color: #dbdbdb;
 }
 code {
-  background-color: #242424;
+  background-color: #242424 !important;
   color: #da1039;
   font-size: 0.875em;
   font-weight: normal;

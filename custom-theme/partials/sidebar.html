@@ -1,13 +1,16 @@
 <div id="nav-toc" class="menu sticky">
-  <header class="quickview-header">
-    <p class="has-text-weight-bold">
+  <div class="quickview-body" style="overflow-x: hidden;">
+	{% if page.meta.author_name %}
 		
-		📃 Table of content
-	</p>
-    <span class="delete is-hidden-tablet" data-dismiss="quickview"></span>
-  </header>
-
-  <div class="quickview-body">
+	<div class="columns is-mobile is-centered is-vcentered">
+		<div class="column is-one-fifth">
+		<img style="border-radius: 50%" src="{{ page.meta.author_img }}" alt="">
+		</div>
+		<div class="column">
+			<span class="content">Written By <strong>{{ page.meta.author_name }}</strong></span>
+		</div>
+	</div>
+	{% endif %}
     <div class="quickview-block">
       {% for toc_item in page.toc %}
 		<p class="menu-label">
@@ -30,5 +33,5 @@
 		</span>
 		Last update: {{ page.meta.git_revision_date_localized }}
 	</footer>
-  {% endif %} 
+  {% endif %}
 </div>

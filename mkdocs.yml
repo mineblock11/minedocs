@@ -2,3 +2,5 @@ site_name: minedocs
 theme:
     name: null
     custom_dir: custom-theme
+nav:
+    - Home: "index.md"

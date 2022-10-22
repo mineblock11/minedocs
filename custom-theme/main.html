@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
-    <meta http-equiv="Pragma" content="no-cache"/>
-    <meta http-equiv="Expires" content="0"/>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page.title }} - {{ config.site_name }}</title>
@@ -12,7 +13,7 @@
     <link rel="stylesheet" href="{{ '/css/theme.css'|url }}">
     {%- if config.theme.highlightjs %}
     <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/{{ config.theme.hljs_style }}.min.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/{{ config.theme.hljs_style }}.min.css">
     {%- endif %}
     {% for path in config.extra_css %}
     <link href="{{ path|url }}" rel="stylesheet">
@@ -20,7 +21,7 @@
     {%- block scripts %}
     <script type="text/javascript" src="/node_modules/bulma-quickview/dist/js/bulma-quickview.min.js"></script>
     <script type="text/javascript" src="/node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
-    <script> var base_url = {{base_url | tojson | safe}} </script>
+    <script> var base_url = {{ base_url | tojson | safe}} </script>
     <script src="{{ 'js/theme.js'|url }}" defer></script>
     {%- for path in config['extra_javascript'] %}
     <script src="{{ path|url }}" defer></script>
@@ -33,43 +34,61 @@
     {%- endif %}
     {%- endblock %}
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8415048556078691"
-            crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/github-dark.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
 </head>
+
 <body id="body">
-{% include 'partials/navbar.html' %}
-<section class="section">
-    <div class="container">
-        <div class="columns">
-            <div class="column is-one-quarter-tablet">
-                {% include 'partials/sidebar.html' %}
-            </div>
-            <div class="column">
-                <div class="content">
-                    {% block content %}
-                    {{ page.content }}
-                    {% endblock content %}
-                    <div class="clear"></div>
+
+    {% include 'partials/navbar.html' %}
+
+    <div class="box">
+        <script async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8415048556078691"
+            crossorigin="anonymous"></script>
+        <!-- Header -->
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8415048556078691"
+            data-ad-slot="1425995918" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                {% if not page.meta.hide_toc %}
+                <div class="column is-one-quarter-tablet">
+                    {% include 'partials/sidebar.html' %}
                 </div>
-                <div id="mkdocs-search-results"></div>
-            </div>
-            <div class="column">
-                <script async
-                        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8415048556078691"
-                        crossorigin="anonymous"></script>
-                <!-- Documentation Sidebar -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-8415048556078691"
-                     data-ad-slot="4403497135"
-                     data-ad-format="auto"
-                     data-adtest="on"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
+                {% endif %}
+                <div class="column">
+                    <div class="content">
+                        {% block content %}
+                        {{ page.content }}
+                        {% endblock content %}
+                        <div class="clear"></div>
+                    </div>
+                    <div id="mkdocs-search-results"></div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8415048556078691"
+                crossorigin="anonymous"></script>
+            <!-- Footer -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8415048556078691"
+                data-ad-slot="4419809004" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </footer>
 </body>
+
 </html>
