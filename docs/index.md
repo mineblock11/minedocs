@@ -6,6 +6,8 @@ Welcome to minedocs, documentation for all of mineblock11's mods and modding gui
 
 ### Guides
 
+All guides use yarn, as that is the majorly used mappings for Fabric. You can use [Linkie Mappings](https://linkie.shedaniel.me/mappings) to convert between mappings.
+
 <div class="tile is-ancestor is-flexy">
     <div class="tile">
         <div class="tile is-parent is-vertical is-primary"><a href="/guides/totem"

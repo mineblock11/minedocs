@@ -11,9 +11,193 @@ Completed code can be found on GitHub: [11mods/weather-totems](https://github.co
 
 ## Prerequisites
 
-You will need basic knowledge of Java to begin this guide. If you do not know how to program in Java with gradle, please checkout these beginner guides before continuing: 
+You will need basic knowledge of Java to begin this guide. If you do not know how to program in Java with gradle, please checkout these beginner guides before continuing:
 
 - [Java Tutorial](https://www.w3schools.com/java/)
 - [Gradle: Building A Java App](https://www.baeldung.com/gradle-building-a-java-app)
 
+You will obviously need IntelliJ IDEA, the Minecraft Dev plugin.
 
+## Getting Started
+
+First, create a new Fabric Mod project in the `Create Project` menu of IntelliJ, fill out the details.
+
+Once your project has completed generating, we can start with creating our items, and the shrine system.
+
+Lets create a `WeatherTotem` class that extends `Item` like so:
+
+```java
+public class WeatherTotem extends Item {
+    public WeatherTotemItem(Settings settings) {
+        super(settings);
+    }
+}
+```
+
+Right now, this item is completely and utterly useless. What do we want to make the totem do?
+
+**Planning your mods is probably more important than actually creating them. If you don't think about how your mod works beforehand, [things can get messy...](https://github.com/11mods/FabricGlass/blob/60716be110ac08e30db2fb2c5812f46ef2b4d9f4/src/main/java/mine/block/glass/blocks/entity/ProjectionBlockBase.java#L150-L265)**
+
+So, we want our totems to:
+
+- Change the weather instantly.
+- Be creatable in a "Weather Shrine"
+- Be lootable in ship wrecks, underwater ruins and villages.
+
+## Totem Logic
+
+Let's make our totems change the weather!
+
+First of all, we need to assign weather to a totem item, to do this, we can use an enum:
+
+```java
+public enum WeatherType {
+    RAIN,
+    CLEAR,
+    STORM
+}
+```
+
+Now we've created the enum, we can store it in the `WeatherTotem` class, this will represent what weather the totem should change the world to.
+
+```java
+public class WeatherTotem extends Item {
+    // The type of weather to change to when the totem is used.
+    private final WeatherType type;
+
+    public WeatherTotemItem(Settings settings, WeatherType type) {
+        super(settings);
+        this.type = type;
+    }
+}
+```
+
+It's best to comment what your code does, as it makes it easier to understand to you in the future, and other people.
+
+Now we're storing the weather type, lets make the totem do something!
+
+#### Totem Usage
+
+In Minecraft, you can create an interactable item by extending the `use(...)` method, so, in the `WeatherTotem` class, we'll extend that method for our own usage.
+
+```java
+    @Override
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+    
+        // ...
+    }
+```
+
+`use(...)` requires a `TypedActionResult` to be returned - it tells the game what it should do with the item, destroy it, duplicate it etc.
+
+In this case, we want to destroy the item, as it should only be used once.
+
+We'll use `TypedActionResult.consume(...)` to destroy the item once its used.
+
+```java
+    @Override
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+        ItemStack totemItemStack = user.getStackInHand(hand);
+        return TypedActionResult.consume(totemItemStack);
+    }
+```
+
+Alright, the totem now disappears when its used, we need to change the weather now!
+
+We have to change the weather on the server, because all game logic is ran on the server. We can check whether the `use(...)` method is being ran on the server or not by checking if `world.isClient` is false.
+
+```java
+    @Override
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+
+        if(!world.isClient) {
+            // This code is only ran on the server!
+        }
+
+        ItemStack totemItemStack = user.getStackInHand(hand);
+        return TypedActionResult.consume(totemItemStack);
+    }
+```
+
+To change the weather, we must access the `world`'s properties and change the weather ticks. Due to the fact that this code is being ran on the server, we can cast `world` to the `ServerWorld` class to access the properties properly.
+
+```java
+if(!world.isClient) {
+    // This code is only ran on the server!
+    ServerWorld serverWorld = (ServerWorld) world;
+    WorldProperties worldProperties = serverWorld.getLevelProperties();
+}
+```
+
+`WorldProperties` doesn't have the methods to change the weather though! So we have to check if it's an instance of `LevelProperties`, which contains the methods to change the weather. We can use `instanceof` in an `if` statement to do this:
+
+```java
+// This code is only ran on the server!
+ServerWorld serverWorld = (ServerWorld) world;
+WorldProperties worldProperties = serverWorld.getLevelProperties();
+            
+if(worldProperties instanceof LevelProperties levelProperties) {
+    // We'll change the weather in this bit.
+}
+```
+
+#### Changing The Weather
+
+We have to check what type the totem is to change the weather:
+
+```java
+if(worldProperties instanceof LevelProperties levelProperties) {
+    if(this.type == WeatherType.CLEAR) {
+        levelProperties.setRainTime(0);
+        levelProperties.setThunderTime(0);
+        levelProperties.setRaining(false);
+        levelProperties.setThundering(false);
+    }
+    if(this.type == WeatherType.RAIN) {
+        // We need to set the weather to rain.
+        levelProperties.setRainTime(1000000); // This is in ticks. Change it if you want. 20 ticks = 1 second
+        levelProperties.setRaining(true);
+    }
+    if(this.type == WeatherType.THUNDER) {
+        levelProperties.setRainTime(1000000);
+        levelProperties.setRaining(true);
+        levelProperties.setThundering(true);
+        levelProperties.setThunderTime(1000000);
+    }
+}
+```
+
+The logic is now done, all we need to do is register the totems.
+
+### Registering Totems
+
+We can create a new class, and register our items there:
+
+```java
+public class TotemItems {
+    public static void initialize() {
+        // Register all the totem types possible.
+        register("thunder_totem", new WeatherTotemItem(new FabricItemSettings().group(ItemGroup.TOOLS), WeatherType.THUNDER));
+        register("rain_totem", new WeatherTotemItem(new FabricItemSettings().group(ItemGroup.TOOLS), WeatherType.RAIN));
+        register("clear_totem", new WeatherTotemItem(new FabricItemSettings().group(ItemGroup.TOOLS), WeatherType.CLEAR));
+    }
+
+    public static Item register(String id, Item item) {
+        // Register an item to the registry.
+        return Registry.register(Registry.ITEM, new Identifier("weathertotems", id), item);
+    }
+}
+```
+
+We now need to call `TotemItems.initialize()` from our `ModEntrypoint`:
+
+```java
+@Override
+public void onInitialize() {
+    TotemItems.initialize();
+}
+```
+
+Now, when we go in-game, we should have three totem items available from the tools tab of the creative inventory. They should change the weather on use.
+
+![](/images/totem/rain-totem.gif)
