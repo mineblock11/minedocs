@@ -28,6 +28,7 @@
 			<script>hljs.initHighlightingOnLoad();</script>
         {%- endif %}
     {%- endblock %}
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8415048556078691" crossorigin="anonymous"></script>
   </head>
   <body id="body">
     {% include 'partials/navbar.html' %}
@@ -39,12 +40,15 @@
           </div>
           <div class="column">
             <div class="content">
-              {% block content %} 
+              {% block content %}
 				{{ page.content }}
 			  {% endblock content %}
               <div class="clear"></div>
             </div>
             <div id="mkdocs-search-results"></div>
+          </div>
+          <div class="column">
+
           </div>
         </div>
       </div>
