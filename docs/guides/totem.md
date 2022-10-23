@@ -202,6 +202,6 @@ Now, when we go in-game, we should have three totem items available from the too
 
 ![](/images/totem/rain-totem.gif)
 
-### What's next?
+## What's next?
 
 Its up to you to add textures and a model to the totem! Go wild!
