@@ -20,6 +20,18 @@ All guides use yarn, as that is the majorly used mappings for Fabric. You can us
                 </p>
             </a></div>
     </div>
+    <div class="tile">
+        <div class="tile is-parent is-vertical is-primary"><a href="/guides/mixin_basics"
+                class="tile is-child notification box">
+                <h4 class="subtitle is-capitalized">Mixin Basics</h4>
+                <p class="content">
+                    Learn how to make use of Mixin to print "Hello World!" in the console by creating a simple mixin that 
+                    runs when the main menu is opened.
+                    <br />
+                    <br />
+                </p>
+            </a></div>
+    </div>
     <!-- <div class="tile">
         <div class="tile is-parent is-vertical is-primary">
             <a href="https://github.com/11mods/" class="tile is-child notification box">
