@@ -44,7 +44,7 @@ So, we want our totems to:
 - Change the weather instantly.
 - Be one time use.
 
-## Totem Logic
+## Creating The Totems
 
 Let's make our totems change the weather!
 
@@ -155,14 +155,14 @@ if(worldProperties instanceof LevelProperties levelProperties) {
     }
     if(this.type == WeatherType.RAIN) {
         // We need to set the weather to rain.
-        levelProperties.setRainTime(1000000); // This is in ticks. Change it if you want. 20 ticks = 1 second
+        levelProperties.setRainTime(4800); // This is in ticks. Change it if you want. 20 ticks = 1 second so 4800 ticks = 4 minutes (240 seconds)
         levelProperties.setRaining(true);
     }
     if(this.type == WeatherType.THUNDER) {
-        levelProperties.setRainTime(1000000);
+        levelProperties.setRainTime(4800);
         levelProperties.setRaining(true);
         levelProperties.setThundering(true);
-        levelProperties.setThunderTime(1000000);
+        levelProperties.setThunderTime(4800);
     }
 }
 ```
@@ -201,11 +201,9 @@ public void onInitialize() {
 Now, when we go in-game, we should have three totem items available from the tools tab of the creative inventory. They should change the weather on use.
 
 ![](/images/totem/rain-totem.gif)
-### Textures, Models? Oh my!
+## Textures, Models, Art? Oh my!
 
-The item is looking a bit purpley... lets add some textures! Well, you have the easy part. Download this asset pack if you'd like to use pre-made textures:
-
-<hr>
+You'll need some textures for your totems before continuing, i've made some up for you here: *or you can make your own!*
 
 <div id="totem-textures" class="modal">
   <div class="modal-background"></div>
@@ -226,3 +224,39 @@ The item is looking a bit purpley... lets add some textures! Well, you have the 
 <button class="js-modal-trigger button is-large is-primary" data-target="totem-textures">
   Download Assets
 </button>
+
+### Textures
+
+Place the textures in the `totem-assets.zip` or the textures you have created in the `resources/assets/<modid>/textures/item` folder.
+
+### Models
+
+We'll now need to create some models, for the totems, we can extend the `item/generated` model provided by vanilla Minecraft.
+
+This is `thunder_totem.json`, make sure to make models for the other totems as well! The JSON file name should match the path of the item ID. Place these json models in `resources/assets/<modid>/models/item`
+
+*`weathertotems:thunder_totem` = `thunder_totem.json`*
+```json
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "weathertotems:item/thunder_totem"
+    }
+}
+```
+
+<hr>
+
+Once you've created all the models, they should appear in-game:
+
+![Totem Models Ingame](/images/totem/totem-models-ingame.png)
+
+<!-- ### Recipes
+
+We have no way to craft the totems! Meaning they aren't accessible from survival Minecraft. Again, we'll plan our recipes:
+
+- The clear totem should be crafted using a Totem Of Undying, and an empty bucket - eg: the rainy, thundery weather is collected in the bucket, or something along the lines of that.
+- The thunder totem should be crafted using a Totem Of Undying and a lightning rod, as that just seems plausible.
+- The rain totem should be crafted using a Totem Of Undying and a bucket of water.
+
+You can always change the required items if you want. -->

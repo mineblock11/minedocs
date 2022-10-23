@@ -1,1 +1,8 @@
 .yarn-integrity
+.vscode
+.idea
+.fleet
+.vim-settings
+.vim
+.nano
+.nano-settings
