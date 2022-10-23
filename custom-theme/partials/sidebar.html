@@ -1,8 +1,11 @@
 <div id="nav-toc" class="menu sticky">
   <div class="quickview-body" style="overflow-x: hidden;">
+
+	<a href="/" class="button">← Go Back</a> <a href="https://discord.gg/U9AHqcZkTE" target="_blank" class="button">Discord</a> <a href="https://github.com/11mods" target="_blank" class="button">GitHub</a>
+	<hr>
+
 	{% if page.meta.author_name %}
-		
-	<div class="columns is-mobile is-centered is-vcentered">
+	<div class="columns is-centered is-vcentered">
 		<div class="column is-one-fifth">
 		<img style="border-radius: 50%" src="{{ page.meta.author_img }}" alt="">
 		</div>
@@ -11,10 +14,19 @@
 		</div>
 	</div>
 	{% endif %}
+
     <div class="quickview-block">
       {% for toc_item in page.toc %}
 		<p class="menu-label">
-		  {{ toc_item.title }}
+		  {{ toc_item.title }} {% if page.meta.difficulty == "easy" %}
+		  <span class="tag is-success">Beginner</span>
+		  {% endif %}
+		  {% if page.meta.difficulty == "medium" %}
+		  <span class="tag is-warning">Intermediate</span>
+		  {% endif %}
+		  {% if page.meta.difficulty == "hard" %}
+		  <span class="tag is-error">Advanced</span>
+		  {% endif %}
 		</p>
 
 		{% if toc_item.children %}

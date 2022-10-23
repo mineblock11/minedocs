@@ -1,9 +1,10 @@
 author_name: mineblock11
 author_img: https://github.com/mineblock11.png
+difficulty: easy
 
 # Weather Totems
 
-In this guide, you will learn how to create interactive items and block entities that have screens using `libgui`.
+In this guide, you will learn how to create interactive items.
 
 This guide is made for 1.19.x, it is not guaranteed to work below 1.19.x
 
@@ -11,7 +12,7 @@ Completed code can be found on GitHub: [11mods/weather-totems](https://github.co
 
 ## Prerequisites
 
-You will need basic knowledge of Java to begin this guide. If you do not know how to program in Java with gradle, please checkout these beginner guides before continuing:
+You will need basic knowledge of Java to begin this guide. If you do not know how to program in Java with Gradle, please check out these beginner guides before continuing:
 
 - [Java Tutorial](https://www.w3schools.com/java/)
 - [Gradle: Building A Java App](https://www.baeldung.com/gradle-building-a-java-app)
@@ -41,8 +42,7 @@ Right now, this item is completely and utterly useless. What do we want to make 
 So, we want our totems to:
 
 - Change the weather instantly.
-- Be creatable in a "Weather Shrine"
-- Be lootable in ship wrecks, underwater ruins and villages.
+- Be one time use.
 
 ## Totem Logic
 
@@ -201,3 +201,7 @@ public void onInitialize() {
 Now, when we go in-game, we should have three totem items available from the tools tab of the creative inventory. They should change the weather on use.
 
 ![](/images/totem/rain-totem.gif)
+
+## What's next?
+
+Its up to you to add textures and a model to the totem! Go wild!

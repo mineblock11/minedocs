@@ -13,6 +13,7 @@ All guides use yarn, as that is the majorly used mappings for Fabric. You can us
         <div class="tile is-parent is-vertical is-primary"><a href="/guides/totem"
                 class="tile is-child notification box">
                 <h4 class="subtitle is-capitalized">Weather Totems</h4>
+                <span class="tag is-success">Beginner</span>
                 <p class="content">
                     Learn how to create interactive items and block entities by creating a mod that implements "Weather
                     Totems" into the game.<br />
@@ -24,23 +25,23 @@ All guides use yarn, as that is the majorly used mappings for Fabric. You can us
         <div class="tile is-parent is-vertical is-primary"><a href="/guides/mixin_basics"
                 class="tile is-child notification box">
                 <h4 class="subtitle is-capitalized">Mixin Basics</h4>
+                <span class="tag is-warning">Intermediate</span>
                 <p class="content">
                     Learn how to make use of Mixin to print "Hello World!" in the console by creating a simple mixin that 
                     runs when the main menu is opened.
-                    <br />
-                    <br />
                 </p>
             </a></div>
     </div>
-    <!-- <div class="tile">
+    <div class="tile">
         <div class="tile is-parent is-vertical is-primary">
-            <a href="https://github.com/11mods/" class="tile is-child notification box">
-                <h4 class="subtitle is-capitalized"><i class="fa-brands fa-github"></i> GitHub Org</h4>
-                <p class="content">Most of my mods can be found on the 11mods GitHub Organization.</p>
+            <a href="/guides/keybinding" class="tile is-child notification box">
+                <h4 class="subtitle is-capitalized">Keybindings</h4>
+                <span class="tag is-success">Beginner</span>
+                <p class="content">Learn how to work with keybindings by implementing a mod which prints "Hello, World!" when the M key is pressed.</p>
             </a>
         </div>
     </div>
-    <div class="tile">
+    <!-- <div class="tile">
         <div class="tile is-parent is-vertical is-primary">
             <a href="https://ko-fi.com/mineblock11" class="tile is-child notification box">
                 <h4 class="subtitle is-capitalized"><i class="fa-solid fa-pizza-slice"></i> Ko-Fi</h4>
