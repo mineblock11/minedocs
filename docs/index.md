@@ -13,6 +13,7 @@ All guides use yarn, as that is the majorly used mappings for Fabric. You can us
         <div class="tile is-parent is-vertical is-primary"><a href="/guides/totem"
                 class="tile is-child notification box">
                 <h4 class="subtitle is-capitalized">Weather Totems</h4>
+                <span class="tag is-success">Beginner</span>
                 <p class="content">
                     Learn how to create interactive items and block entities by creating a mod that implements "Weather
                     Totems" into the game.<br />
@@ -23,7 +24,8 @@ All guides use yarn, as that is the majorly used mappings for Fabric. You can us
     <div class="tile">
         <div class="tile is-parent is-vertical is-primary">
             <a href="/guides/keybinding" class="tile is-child notification box">
-                <h4 class="subtitle is-capitalized"><i class="fa-brands fa-github"></i>KeyBindings</h4>
+                <h4 class="subtitle is-capitalized">Keybindings</h4>
+                <span class="tag is-success">Beginner</span>
                 <p class="content">Learn how to work with keybindings by implementing a mod which prints "Hello, World!" when the M key is pressed.</p>
             </a>
         </div>

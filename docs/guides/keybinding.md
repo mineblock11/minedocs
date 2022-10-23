@@ -1,7 +1,8 @@
 author_name: Deftu
 author_img: https://github.com/Deftu.png
+difficulty: easy
 
-# KeyBindings
+# Keybindings
 
 In this guide, you will learn how to create keybindings configurable via Minecraft's controls menu.
 
@@ -22,11 +23,11 @@ First, create a new Fabric Mod project in the `Create Project` menu of IntelliJ,
 
 Once your project has completed generating, we can start with creating mod initializer. Do keep in mind that keybindings obviously only interact via the client. If you want server functionality, you'll need to send packets to the server via the client. Right now, this mod will do absolutely nothing. Now would be about the time to start thinking about what you want your keybinding to actually do... In this guide, we'll be making it print out "Hello, World!".
 
-## Creating the KeyBinding
+## Creating the Keybinding
 
 The most important thing we have to do here is actually create our keybinding, or else we can't interact with it!
 
-The list of parameters in the KeyBinding constructor are as follows:
+The list of parameters in the Keybinding constructor are as follows:
 
 - The name of the keybinding itself, shown in the controls menu.
 - The category the keybinding is listed under in the controls menu.
@@ -45,11 +46,11 @@ public class ExampleModClient implements ClientModInitializer {
 }
 ```
 
-## Registering your KeyBinding
+## Registering your Keybinding
 
 For this step, we will **need** Fabric API, as it has utilities we will use inside of it's keybinding API.
 
-To register our KeyBinding, we'll need to use the `KeyBindingHelper`. This can be done as follows:
+To register our Keybindings, we'll need to use the `KeyBindingHelper`. This can be done as follows:
 
 ```java
 public class ExampleModClient implements ClientModInitializer {
@@ -65,7 +66,7 @@ public class ExampleModClient implements ClientModInitializer {
 
 All this does is add our keybinding to the Minecraft controls menu. This is not necessarily a required step, though it's very important for users to be able to configure your keybinding.
 
-## Interacting with your KeyBinding
+## Interacting with your Keybinding
 
 To interact with your keybind, there are two options:
 
