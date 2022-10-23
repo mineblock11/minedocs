@@ -1,5 +1,6 @@
 author_name: StarL0stGaming
 author_img: https://github.com/StarL0st.png
+difficulty: intermediate
 
 # Mixin Basics
 
