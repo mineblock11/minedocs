@@ -11,7 +11,7 @@ Completed code can be found on GitHub: [11mods/weather-totems](https://github.co
 
 ## Prerequisites
 
-You will need basic knowledge of Java to begin this guide. If you do not know how to program in Java with gradle, please checkout these beginner guides before continuing:
+You will need basic knowledge of Java to begin this guide. If you do not know how to program in Java with Gradle, please check out these beginner guides before continuing:
 
 - [Java Tutorial](https://www.w3schools.com/java/)
 - [Gradle: Building A Java App](https://www.baeldung.com/gradle-building-a-java-app)
