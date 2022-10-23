@@ -20,48 +20,7 @@ You will obviously need IntelliJ IDEA, the Minecraft Dev plugin.
 
 First, create a new Fabric Mod project in the `Create Project` menu of IntelliJ, fill out the details.
 
-Once your project has completed generating, we can start with creating mod initializer. Do keep in mind that keybindings obviously only interact via the client. If you want server functionality, you'll need to send packets to the server via the client.
-
-To start off, we need to create and add our initializer/entrypoint:
-
-```java
-public class ExampleModClient implements ClientModInitializer {
-
-    @Override
-    public void onInitializeClient() {
-    }
-
-}
-```
-
-Your `fabric.mod.json` should look as follows:
-```json
-{
-    "schemaVersion": 1,
-    "id": "examplemod",
-    "version": "1.0.0",
-    "name": "ExampleMod",
-    "description": "An example mod showing off keybindings!",
-    "authors": [
-        "Example Person"
-    ],
-    "environment": "client",
-    "entrypoints": {
-        "client": [
-            {
-                "value": "ExampleModClient"
-            }
-        ]
-    },
-    "depends": {
-        "fabric-api": "*",
-        "fabricloader": ">=0.14.9",
-        "java": ">=16"
-    }
-}
-```
-
-Right now, this mod does absolutely nothing. Now would be about the time to start thinking about what you want your keybinding to actually do... In this guide, we'll be making it print out "Hello, World!".
+Once your project has completed generating, we can start with creating mod initializer. Do keep in mind that keybindings obviously only interact via the client. If you want server functionality, you'll need to send packets to the server via the client. Right now, this mod will do absolutely nothing. Now would be about the time to start thinking about what you want your keybinding to actually do... In this guide, we'll be making it print out "Hello, World!".
 
 ## Creating the KeyBinding
 
