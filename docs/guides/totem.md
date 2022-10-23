@@ -201,7 +201,28 @@ public void onInitialize() {
 Now, when we go in-game, we should have three totem items available from the tools tab of the creative inventory. They should change the weather on use.
 
 ![](/images/totem/rain-totem.gif)
+### Textures, Models? Oh my!
 
-## What's next?
+The item is looking a bit purpley... lets add some textures! Well, you have the easy part. Download this asset pack if you'd like to use pre-made textures:
 
-Its up to you to add textures and a model to the totem! Go wild!
+<hr>
+
+<div id="totem-textures" class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <div class="container box">
+      <p class="subtitle"><i class="fa fa-download" aria-hidden="true"></i> Download Assets</p>
+      <p class="content">
+        By downloading these assets from minedocs, you agree to respect the 
+        <a href="https://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution-NoDerivatives 4.0 International License</a>
+      </p>
+      <a class="button is-primary" href="/assets/totem-assets.zip" target="_blank">Download totem-assets.zip</a>
+    </div>
+  </div>
+
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>
+
+<button class="js-modal-trigger button is-large is-primary" data-target="totem-textures">
+  Download Assets
+</button>

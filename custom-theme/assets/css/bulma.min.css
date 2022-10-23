@@ -214,7 +214,7 @@ fieldset[disabled] .button {
   user-select: none;
   -moz-appearance: none;
   -webkit-appearance: none;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.2);
   border: none;
   border-radius: 9999px;
   cursor: pointer;
@@ -237,7 +237,7 @@ fieldset[disabled] .button {
 .delete::before,
 .modal-close::after,
 .delete::after {
-  background-color: #1a1a1a;
+  background-color: #ffffff;
   content: "";
   display: block;
   left: 50%;
@@ -4974,7 +4974,7 @@ button.dropdown-item.is-active {
   display: flex;
 }
 .modal-background {
-  background-color: rgba(255, 255, 255, 0.86);
+  background-color: rgba(0, 0, 0, 0.86);
 }
 .modal-content,
 .modal-card {
