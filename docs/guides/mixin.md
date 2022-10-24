@@ -179,7 +179,7 @@ We can now use this instance to print our message to the console.
     }
 ```
 
-And we are done!, when you launch mc you should see our Hello World! message on the console, you just need to look a little bit for it.
+And we are done!, when you launch Minecraft you should see our Hello World! message on the console, you just need to look a little bit for it.
 
 
 ## What's next?
