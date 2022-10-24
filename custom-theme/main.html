@@ -13,14 +13,15 @@
 
     <!-- OG Tags -->
     {% if not page.meta.is_root %}
-    <title>{{ page.title }} - {{ config.site_name }}</title>
-    <meta property="og:title" content="{{ page.title }}" />
-
+        <title>{{ page.title }} - {{ config.site_name }}</title>
+        <meta property="og:title" content="{{ page.title }}" />
+        <meta property="og:description" content="{{ page.description }}"/>
     {% else %}
 
     <title>minedocs</title>
     <meta property="og:title" content="minedocs" />
-
+    <meta property="og:description" content="Community curated guides, and documentation plus wikis for mineblock11's mods."/>
+    <meta property="og:image" content="https://mineblock11.dev/mb11.png" />
     {% endif %}
 
     <!-- CSS/JS -->
