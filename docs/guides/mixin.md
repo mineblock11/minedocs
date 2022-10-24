@@ -4,7 +4,7 @@ difficulty: intermediate
 description: Learn how to make use of Mixin to print "Hello World!" in the console by creating a simple mixin that runs when the main menu is opened.
                 
 
-# Mixin Basics
+# Mixins
 
 In this guide you will learn how to make use of Mixin, a tool that is very useful in certain cases when modding.
 
@@ -180,3 +180,114 @@ We can now use this instance to print our message to the console.
 ```
 
 And we are done!, when you launch mc you should see our Hello World! message on the console, you just need to look a little bit for it.
+
+
+## What's next?
+
+Now that you understand the basics or mixin, it's time to go ahead and try to do more complicated things.
+
+We will now try to add our own button the main menu, to do this, we will need to have a deeper understanding on how mixins work.
+
+I strongly recommend you go checkout the [official Mixin documentation](https://github.com/SpongePowered/Mixin/wiki/Introduction-to-Mixins---Understanding-Mixin-Architecture) on how they work.
+
+After you have read that, it's time to do some work.
+
+#### Injection 2: Electric Bogaloo 
+
+Yes, we will, in this case since we are not changing any of the existing buttons on the menu we don't need to use
+some of the other fancy things mixin provides.
+
+We are only going to change the method we are mixin into.
+
+It is extremely important you know what to do to know where you want your mixin to be in, so, we are going to dive into Minecraft's code!
+
+You can access the code in two different ways, you can either do middle click in a class reference to a class in Minecrafts's code (even in your own code) or 
+you can look for the sources in the External Libraries block at the bottom of the project panel.
+
+Once you are inside your desired class's code, you can start looking for the method you want to target.
+
+For this, it is very important you plan ahead your mixins so you know what to look for. In our case, we are going to add a new button
+to the main menu, so we need to look where are this buttons initialized, in `TitleScreen`'s case this "widgets" are initialized on the
+`initWidgetsNormal` method, so thats where we are going to mixin.
+
+We now need to change our method target in our `@Inject` annotation.
+
+```java
+    @Inject(method = "initWidgetsNormal", at = @At(value = "HEAD"))
+    private void yourmodid_addButton(CallbackInfo ci) {
+      
+    }
+```
+
+Note that I removed the line that prints "Hello World!" and I changed the method's name.
+
+Now its time to do the real work.
+
+#### But I don't like him mom!
+
+Remember when I told you to check how mixins work? Well if you haven't you will absolutely need to check that now.
+
+If you have, good, we can continue now. What we need to add a button to a screen it's on the `Screen` class, alright
+but how do we access it?
+
+We will need to extend the `Screen` class to be able to access those methods, and the reason is quite simple.
+
+Your code isn't exactly injected into the method you are mixin into, but instead Mixin adds a call to your method at the position you 
+asked it to do so.
+
+So technically our code is injected into the target class, as a separete method, and then a call to that method is added where you asked for,
+so in our case, since `TitleScreen` also extends `Screen` our code will end up having access to the method we need, but when coding it, it doesnt.
+
+And we need to make the compiler happy, so what do we do? We extend the class which has the methods we need.
+
+This will allow us to access the methods we need while also making the compiler happy and avoiding annoying errors. Remember
+that this can also be applied to different cases, not only this one.
+
+I'm not going to go in detail on to how to make a "button", you can always check mc's code on how it's done.
+
+To add a "widget" we need to call the `addDrawableChild` method, this method takes a `Element` as a parameter, the `Element` can be
+a `TexturedButtonWidget` or a `ButtonWidget`, we will be using the `ButtonWidget` one.
+
+The `ButtonWidget` class takes several parameters, including the x and y pos, the width and lenght of the button, a `Text` instance and a `pressAction`, 
+this can also be a lambda.
+
+This button we are going to add is the same lenght as most of the buttons in the main menu, and should be a little bit over the `Singleplayer` button.
+
+Your method should look like this:
+
+```java
+    @Inject(method = "initWidgetsNormal", at = @At(value = "HEAD"))
+    private void andromedaproject_hello(CallbackInfo ci) {
+        //this method add's the button to our screen
+        this.addDrawableChild(new ButtonWidget(this.width / 2 - 50, 1, 200, 20, new LiteralText("hello?"), (buttonWidget -> {
+            //this sets the client's current screen to the world selection screen
+            this.client.setScreen(new SelectWorldScreen(this));
+        })));
+    }
+```
+
+Feel free to play with all the parameters as you may like. Note that you can also include your own logic in the `pressAction` lambda.
+
+So now that we have added our button, it's time to see if it worked!
+
+As you can see, the button is actually quite high in the screen, but that's the fun of doing this type of things, moving and
+changing values to see which one does it correctly.
+
+![](/images/mixin/menu_button.png)
+
+With some moving of values we can make it be at least a little bit nicer.
+
+![](/images/mixin/second_try.png)
+
+My method ended up looking like this:
+
+```java
+    @Inject(method = "initWidgetsNormal", at = @At(value = "HEAD"))
+    private void andromedaproject_hello(CallbackInfo ci) {
+        //this method add's the button to our screen
+        this.addDrawableChild(new ButtonWidget(this.width / 2 - 100, 25, 200, 20, new LiteralText("hello?"), (buttonWidget -> {
+            //this sets the client's current screen to the world selection screen
+            this.client.setScreen(new SelectWorldScreen(this));
+        })));
+    }
+```
