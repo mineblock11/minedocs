@@ -16,7 +16,7 @@
     {% if not page.meta.is_root %}
         <title>{{ page.title }} - {{ config.site_name }}</title>
         <meta property="og:title" content="{{ page.title }}" />
-        <meta property="og:description" content="{{ page.description }}"/>
+        <meta property="og:description" content="{{ page.meta.description }}"/>
     {% else %}
         <title>minedocs</title>
         <meta property="og:title" content="minedocs" />
