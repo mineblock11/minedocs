@@ -2,6 +2,11 @@
 
 Documentation and guides written by mineblock11 and various members of the community.
 
+Current contributors:
+
+- Deftu
+- StarL0st
+
 ## Deployment
 
 Requires yarn, and mkdocs:
