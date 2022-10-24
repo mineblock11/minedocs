@@ -104,10 +104,10 @@ a.current  {
 }
  
 .title {
-    padding: 4px 45px;
     width: 100%;
     font-size: 1.4rem;
 }
+
 .title  a.logo { font-size: 20px;  float: left;}
 .title img { height: 22px;margin: 3px 5px 0px; float: right;}
 .search { float: right; }

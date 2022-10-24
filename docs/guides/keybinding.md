@@ -1,6 +1,7 @@
 author_name: Deftu
 author_img: https://github.com/Deftu.png
 difficulty: easy
+description: Learn how to work with keybindings by implementing a mod which prints "Hello, World!" when the M key is pressed.
 
 # Keybindings
 

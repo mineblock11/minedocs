@@ -1,0 +1,62 @@
+<section class="hero">
+    <div class="hero-body">
+      <h1 class="title">
+        minedocs
+      </h1>
+      <p class="subtitle">
+        Community curated guides, and documentation plus wikis for mineblock11's mods.
+      </p>
+    </div>
+    <hr />
+</section>
+
+<section class="section">
+    <div class="container">
+        <h1 class="title">Guides</h1>
+        <p class="content">These guides have been created by members of the community, you can contribute your own guides <a href="https://github.com/11mods/minedocs/" target="_blank">by making a PR to the GitHub</a></p>
+        <div class="columns tile is-mobile is-multiline is-ancestor is-flexy">
+            {% for page_item in pages %}
+                {% if "guide" in page_item.url %}
+                    <div class="tile column is-one-third is-parent">
+                        <div class="tile">
+                            <div class="tile is-parent is-vertical is-primary">
+                                <a href="{{ page_item.url }}" class="tile is-child notification box">
+                                    <div class="columns is-0">
+                                        <h4 class="column subtitle is-capitalized">{{ page_item.page.title }}</h4>
+                                        <span class="column">{{ diffBadge(page_item.page.meta.difficulty) }}</span>
+                                    </div>
+                                    <div class="columns is-centered is-vcentered">
+                                        <div class="column is-one-fifth">
+                                        <img style="border-radius: 50%" src="{{ page_item.page.meta.author_img }}" alt="">
+                                        </div>
+                                        <div class="column">
+                                            <span class="content">Written By <strong>{{ page_item.page.meta.author_name }}</strong></span>
+                                        </div>
+                                    </div>
+                        
+                                    <p class="content">{{ page_item.page.meta.description }}</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                <div class="content">
+                    {% block content %}
+                    {{ page.content }}
+                    {% endblock content %}
+                    <div class="clear"></div>
+                </div>
+                <div id="mkdocs-search-results"></div>
+            </div>
+        </div>
+    </div>
+</section>

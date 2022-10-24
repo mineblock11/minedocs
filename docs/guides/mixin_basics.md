@@ -1,6 +1,8 @@
 author_name: StarL0stGaming
 author_img: https://github.com/StarL0st.png
 difficulty: intermediate
+description: Learn how to make use of Mixin to print "Hello World!" in the console by creating a simple mixin that runs when the main menu is opened.
+                
 
 # Mixin Basics
 

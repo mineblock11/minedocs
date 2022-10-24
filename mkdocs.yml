@@ -4,3 +4,5 @@ theme:
     custom_dir: custom-theme
 nav:
     - Home: "index.md"
+watch:
+    - "custom-theme"

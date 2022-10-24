@@ -1,6 +1,7 @@
 author_name: mineblock11
 author_img: https://github.com/mineblock11.png
 difficulty: easy
+description: Learn how to make interactive items by creating totems that change the weather of the world.
 
 # Weather Totems
 

@@ -1565,18 +1565,18 @@ fieldset[disabled] .button.is-success.is-inverted.is-outlined {
 .button.is-warning {
   background-color: #96230b;
   border-color: rgba(0, 0, 0, 0);
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(255, 255, 255, 0.7);
 }
 .button.is-warning:hover,
 .button.is-warning.is-hovered {
   background-color: #d4b53b;
   border-color: rgba(0, 0, 0, 0);
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(255, 255, 255, 0.7);
 }
 .button.is-warning:focus,
 .button.is-warning.is-focused {
   border-color: rgba(0, 0, 0, 0);
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(255, 255, 255, 0.7);
 }
 .button.is-warning:focus:not(:active),
 .button.is-warning.is-focused:not(:active) {
@@ -1586,7 +1586,7 @@ fieldset[disabled] .button.is-success.is-inverted.is-outlined {
 .button.is-warning.is-active {
   background-color: #96230b;
   border-color: rgba(0, 0, 0, 0);
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(255, 255, 255, 0.7);
 }
 .button.is-warning[disabled],
 fieldset[disabled] .button.is-warning {
@@ -2937,7 +2937,7 @@ div.icon-text {
 }
 .tag:not(body).is-warning {
   background-color: #96230b;
-  color: rgba(0, 0, 0, 0.7);
+  color: #effbf3;
 }
 .tag:not(body).is-warning.is-light {
   background-color: #fbf9ee;

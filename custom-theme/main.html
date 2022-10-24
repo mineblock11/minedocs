@@ -1,46 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
 
 <head>
+    <!-- Disable Caching -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- OG Tags -->
+    {% if not page.meta.is_root %}
     <title>{{ page.title }} - {{ config.site_name }}</title>
-    <meta property="og:title" content="minedocs Guide - {{ page.title }}" />
+    <meta property="og:title" content="{{ page.title }}" />
+
+    {% else %}
+
+    <title>minedocs</title>
+    <meta property="og:title" content="minedocs" />
+
+    {% endif %}
+
+    <!-- CSS/JS -->
     <link rel="stylesheet" href="{{ '/assets/css/bulma.min.css'|url }}">
     <link rel="stylesheet" href="/node_modules/bulma-quickview/dist/css/bulma-quickview.min.css">
     <link rel="stylesheet" href="{{ '/css/theme.css'|url }}">
-    {%- if config.theme.highlightjs %}
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/{{ config.theme.hljs_style }}.min.css">
-    {%- endif %}
-    {% for path in config.extra_css %}
-    <link href="{{ path|url }}" rel="stylesheet">
-    {% endfor %}
-    {%- block scripts %}
-    <script type="text/javascript" src="/node_modules/bulma-quickview/dist/js/bulma-quickview.min.js"></script>
-    <script type="text/javascript" src="/node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
-    <script> var base_url = {{ base_url | tojson | safe}} </script>
-    <script src="{{ 'js/theme.js'|url }}" defer></script>
-    {%- for path in config['extra_javascript'] %}
-    <script src="{{ path|url }}" defer></script>
-    {%- endfor %}
-    {%- endblock %}
-    {%- block libs %}
-    {%- if config.theme.highlightjs %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    {%- endif %}
-    {%- endblock %}
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8415048556078691"
-        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/github-dark.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8415048556078691"
+        crossorigin="anonymous"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
     <script>
+        hljs.highlightAll();
+
         document.addEventListener('DOMContentLoaded', () => {
             // Functions to open and close a modal
             function openModal($el) {
@@ -90,6 +85,18 @@
 
 <body id="body">
 
+    {% macro diffBadge(difficulty) -%}
+        {% if difficulty == "easy" %}
+        <span class="tag is-success">Beginner</span>
+        {% endif %}
+        {% if difficulty == "intermediate" %}
+        <span class="tag is-warning">Intermediate</span>
+        {% endif %}
+        {% if difficulty == "advanced" %}
+        <span class="tag is-error">Advanced</span>
+        {% endif %}
+    {%- endmacro %}
+
     {% include 'partials/navbar.html' %}
 
     <div class="box">
@@ -103,6 +110,17 @@
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
     </div>
+
+    {% if page.meta.is_root %}
+
+    <!-- Home Page -->
+    {% include 'partials/index.html' %}
+
+    <footer class="footer">
+        {% include 'partials/footer.html' %}
+    </footer>
+
+    {% else %}
 
     <section class="section">
         <div class="container">
@@ -132,7 +150,11 @@
             </div>
         </div>
     </section>
+
     <footer class="footer">
+
+        {% include 'partials/footer.html' %}
+
         <div class="container">
             <script async
                 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8415048556078691"
@@ -145,6 +167,10 @@
             </script>
         </div>
     </footer>
+
+    {% endif %}
+
+    
 </body>
 
 </html>
