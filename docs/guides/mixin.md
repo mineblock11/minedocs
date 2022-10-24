@@ -223,7 +223,7 @@ Note that I removed the line that prints "Hello World!" and I changed the method
 
 Now its time to do the real work.
 
-#### But I don't like him mom!
+#### Fixing The Mixins
 
 Remember when I told you to check how mixins work? Well if you haven't you will absolutely need to check that now.
 
