@@ -16,6 +16,9 @@ You will need basic knowledge of Java to begin this guide. If you do not know ho
 
 You will obviously need IntelliJ IDEA, the Minecraft Dev plugin.
 
+You should also checkout the official wiki page on networking:
+https://fabricmc.net/wiki/tutorial:networking
+
 ## Getting Started
 We will be using the Keybinding guide as a start for our project. For this guide, we will be setting the player on fire using a keybind and simple C2S (client to server) packet. Your client initializer should look something like this
 ```java
@@ -82,3 +85,4 @@ ServerPlayNetworking.registerGlobalReceiver(new Identifier("examplemod", "setonf
     });
 });
 ```
+This code will read the message sent from the client ("Hello server!") and print it out (on the server)
