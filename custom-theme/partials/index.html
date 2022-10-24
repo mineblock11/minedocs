@@ -21,11 +21,8 @@
                         <div class="tile">
                             <div class="tile is-parent is-vertical is-primary">
                                 <a href="{{ page_item.url }}" class="tile is-child notification box">
-                                    <div class="columns is-0">
-                                        <h4 class="column subtitle is-capitalized">{{ page_item.page.title }}</h4>
-                                        <span class="column">{{ diffBadge(page_item.page.meta.difficulty) }}</span>
-                                    </div>
-                                    <div class="columns is-centered is-vcentered">
+                                    <h4 class="column is-two-thirds subtitle is-capitalized">{{ page_item.page.title }} {{ diffBadge(page_item.page.meta.difficulty, "is-small is-family-primary lowertag content") }}</h4>
+                                    <div style="margin: 0" class="columns is-centered is-vcentered">
                                         <div class="column is-one-fifth">
                                         <img style="border-radius: 50%" src="{{ page_item.page.meta.author_img }}" alt="">
                                         </div>
@@ -33,8 +30,9 @@
                                             <span class="content">Written By <strong>{{ page_item.page.meta.author_name }}</strong></span>
                                         </div>
                                     </div>
-                        
-                                    <p class="content">{{ page_item.page.meta.description }}</p>
+                                    <div class="column">
+                                        <p class="content">{{ page_item.page.meta.description }}</p>
+                                    </div>
                                 </a>
                             </div>
                         </div>

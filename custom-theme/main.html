@@ -85,15 +85,15 @@
 
 <body id="body">
 
-    {% macro diffBadge(difficulty) -%}
+    {% macro diffBadge(difficulty, size="") -%}
         {% if difficulty == "easy" %}
-        <span class="tag is-success">Beginner</span>
+        <span class="tag is-success {{ size }}">Beginner</span>
         {% endif %}
         {% if difficulty == "intermediate" %}
-        <span class="tag is-warning">Intermediate</span>
+        <span class="tag is-warning {{ size }}">Intermediate</span>
         {% endif %}
         {% if difficulty == "advanced" %}
-        <span class="tag is-error">Advanced</span>
+        <span class="tag is-error {{ size }}">Advanced</span>
         {% endif %}
     {%- endmacro %}
 

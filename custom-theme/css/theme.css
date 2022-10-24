@@ -80,6 +80,11 @@ a.current  {
     position:relative;
     width:3.25rem;
 }
+
+.lowertag {
+	font-weight: lighter !important;
+}
+
 .navbar-custom-button .icon {
 	height: 100%;
 	width: 100%;
