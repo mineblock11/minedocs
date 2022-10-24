@@ -1,6 +1,7 @@
 author_name: Ace
 author_img: https://github.com/ang-xd.png
 difficulty: easy
+description: Draw textures, text and spawn Toasts on the player's hud using the HudRenderCallback event.
 
 # HUD Rendering
 

@@ -1,6 +1,7 @@
 author_name: Ace
 author_img: https://github.com/ang-xd.png
 difficulty: easy
+description: Use Fabric's Networking API to send messages from the client to the server.
 
 # Networking
 

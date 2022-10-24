@@ -14,17 +14,17 @@
     <div class="container">
         <h1 class="title">Guides</h1>
         <p class="content">These guides have been created by members of the community, you can contribute your own guides <a href="https://github.com/11mods/minedocs/" target="_blank">by making a PR to the GitHub</a></p>
-        <div class="columns tile is-mobile is-multiline is-ancestor is-flexy">
+        <div class="columns is-desktop is-multiline is-ancestor">
             {% for page_item in pages %}
                 {% if "guide" in page_item.url %}
-                    <div class="tile column is-one-third is-parent">
-                        <div class="tile">
-                            <div class="tile is-parent is-vertical is-primary">
-                                <a href="{{ page_item.url }}" class="tile is-child notification box">
-                                    <h4 class="column is-two-thirds subtitle is-capitalized">{{ page_item.page.title }} {{ diffBadge(page_item.page.meta.difficulty, "is-small is-family-primary lowertag content") }}</h4>
-                                    <div style="margin: 0" class="columns is-centered is-vcentered">
+                    <div class="column is-one-third is-parent is-flex">
+                                <a href="{{ page_item.url }}" class="box notification is-child is-vertical">
+                                    <h4 class="subtitle is-capitalized">{{ page_item.page.title }} {{ diffBadge(page_item.page.meta.difficulty, "is-small is-family-primary lowertag content") }}</h4>
+                                    <div style="margin: 0" class="columns is-mobile is-centered is-vcentered">
                                         <div class="column is-one-fifth">
-                                        <img style="border-radius: 50%" src="{{ page_item.page.meta.author_img }}" alt="">
+                                            <figure class="image is-32x32">
+                                                <img class="is-rounded" src="{{ page_item.page.meta.author_img }}">
+                                              </figure>
                                         </div>
                                         <div class="column">
                                             <span class="content">Written By <strong>{{ page_item.page.meta.author_name }}</strong></span>
@@ -34,8 +34,6 @@
                                         <p class="content">{{ page_item.page.meta.description }}</p>
                                     </div>
                                 </a>
-                            </div>
-                        </div>
                     </div>
                 {% endif %}
             {% endfor %}
