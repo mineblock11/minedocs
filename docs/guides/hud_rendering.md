@@ -45,7 +45,7 @@ RenderSystem.setShaderTexture(0, new Identifier("minecraft", "textures/item/appl
 DrawableHelper.drawTexture(matrixStack, 10, 10, 50, 50, 0, 0, 10, 10, 10, 10); // Render on the screen at X:10 Y:10 and size 50
 ```
 If you did this right, you should see an apple rendered at the top left of your screen! (it should look something like this)
-![Apple rendered in game](/docs/images/hud_rendering/applerender.png)
+![Apple rendered in game](/images/hud_rendering/applerender.png)
 
 ## Simple Toasts
 These are kind of like the tips you may sometimes recieve when beginning the game, or advancement notifications. Please keep in mind, do not run this in some sort of ticking method, or render method like we used before. This could cause a crash. Here is a simple system toast:
@@ -53,4 +53,4 @@ These are kind of like the tips you may sometimes recieve when beginning the gam
 SystemToast.add(MinecraftClient.getInstance().getToastManager(), SystemToast.Type.TUTORIAL_HINT, Text.literal("Title"), Text.literal("This is a description"));
 ``` 
 The `SystemToast.Type` can be changed to whatever you want, experiment and see what fits! This is an image of what the toast would look like if you used the code provided. Pretty nice!
-![Toast](/docs/images/hud_rendering/toast.png)
+![Toast](/images/hud_rendering/toast.png)
