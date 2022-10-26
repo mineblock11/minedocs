@@ -101,6 +101,15 @@ a.current  {
     transition-timing-function:ease-out;
     width:16px
 }
+
+pre, code {
+	border-radius: 7px;
+}
+
+td.hljs-ln-line {
+	border: none !important;
+}
+
 .navbar-custom-button:hover{
     background-color:rgba(0,0,0,.05)
 }

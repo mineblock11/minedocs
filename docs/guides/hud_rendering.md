@@ -16,7 +16,7 @@ You will need basic knowledge of Java to begin this guide. If you do not know ho
 - [Java Tutorial](https://www.w3schools.com/java/)
 - [Gradle: Building A Java App](https://www.baeldung.com/gradle-building-a-java-app)
 
-You will obviously need IntelliJ IDEA, the Minecraft Dev plugin.
+You will obviously need IntelliJ IDEA and the Minecraft Dev plugin.
 
 ## Getting Started
 
@@ -24,6 +24,7 @@ First, create a new Fabric Mod project in the `Create Project` menu of IntelliJ,
 
 Once your project has completed generating, we can start in the client initializer class.
 Please make sure all this code is on the client! This is all client-sided code and will cause a crash if used on the server.
+
 ## Rendering Text
 We will be using Fabric's HudRenderCallback event to render on screen. This could also be done by using a mixin on `InGameHud`. We will use the event though. Add this to your onInitializeClient() method
 ```java
@@ -41,8 +42,7 @@ This will render "Hello World" at the top left of your screen! If you want to dr
 We're just going to render the Minecraft apple texture but this is applicable to any texture, including custom ones. Add this code inside the callback, and adjust it to your needs.
 ```java
 RenderSystem.setShaderTexture(0, new Identifier("minecraft", "textures/item/apple.png")); // Set the texture to render
-DrawableHelper.drawTexture(matrixStack, 10, 10, // Render on the screen at X:10 Y:10 and size 50
-50, 50, 0, 0, 10, 10, 10, 10);
+DrawableHelper.drawTexture(matrixStack, 10, 10, 50, 50, 0, 0, 10, 10, 10, 10); // Render on the screen at X:10 Y:10 and size 50
 ```
 If you did this right, you should see an apple rendered at the top left of your screen! (it should look something like this)
 ![Apple rendered in game](/docs/images/hud_rendering/applerender.png)

@@ -30,12 +30,22 @@
     <link rel="stylesheet" href="{{ '/css/theme.css'|url }}">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/github-dark.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8415048556078691"
-        crossorigin="anonymous"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WT503NNFNM"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-WT503NNFNM');
+    </script>
+
     <script>
         hljs.highlightAll();
+        hljs.initLineNumbersOnLoad();
 
         document.addEventListener('DOMContentLoaded', () => {
             // Functions to open and close a modal
@@ -100,18 +110,6 @@
 
     {% include 'partials/navbar.html' %}
 
-    <div class="box">
-        <script async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8415048556078691"
-            crossorigin="anonymous"></script>
-        <!-- Header -->
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8415048556078691"
-            data-ad-slot="1425995918" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
-
     {% if page.meta.is_root %}
 
     <!-- Home Page -->
@@ -123,50 +121,38 @@
 
     {% else %}
 
-    <section class="section">
-        <div class="container">
-            <div class="columns">
-                {% if not page.meta.hide_toc %}
-                <div class="column is-one-quarter-tablet">
-                    {% include 'partials/sidebar.html' %}
-                </div>
-                {% endif %}
-                <div class="column">
-                    <div class="content">
-                        {% block content %}
-                        {{ page.content }}
-                        {% endblock content %}
-                        <div class="clear"></div>
+        <section class="section">
+            <div class="container is-fluid">
+                <div class="columns is-desktop">
+                    {% if not page.meta.hide_toc %}
+                    <div class="column is-one-quarter">
+                        {% include 'partials/sidebar.html' %}
                     </div>
-                    <div id="mkdocs-search-results"></div>
+                    {% endif %}
+                    <div class="column is-clipped">
+                        <section class="section">
+                            <div class="content">
+                                {% block content %}
+                                {{ page.content }}
+                                {% endblock content %}
+                            </div>
+                        </section>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
                 </div>
-            </div>
-            <hr />
-            <div class="container">
-                <script src="https://giscus.app/client.js" data-repo="11mods/minedocs" data-repo-id="R_kgDOIR2vxA"
-                    data-category="Guides" data-category-id="DIC_kwDOIR2vxM4CSJoX" data-mapping="og:title"
-                    data-strict="1" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top"
-                    data-theme="transparent_dark" data-lang="en" data-loading="lazy" crossorigin="anonymous" async>
-                    </script>
+                <hr />
+                <div class="container">
+                    <script src="https://giscus.app/client.js" data-repo="11mods/minedocs" data-repo-id="R_kgDOIR2vxA"
+                        data-category="Guides" data-category-id="DIC_kwDOIR2vxM4CSJoX" data-mapping="og:title"
+                        data-strict="1" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top"
+                        data-theme="transparent_dark" data-lang="en" data-loading="lazy" crossorigin="anonymous" async>
+                        </script>
+                </div>
             </div>
         </div>
-    </section>
 
     <footer class="footer">
-
         {% include 'partials/footer.html' %}
-
-        <div class="container">
-            <script async
-                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8415048556078691"
-                crossorigin="anonymous"></script>
-            <!-- Footer -->
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8415048556078691"
-                data-ad-slot="4419809004" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
     </footer>
 
     {% endif %}

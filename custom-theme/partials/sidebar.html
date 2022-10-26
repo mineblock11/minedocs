@@ -5,9 +5,11 @@
 	<hr>
 
 	{% if page.meta.author_name %}
-	<div class="columns is-centered is-vcentered">
+	<div class="columns is-mobile is-centered is-vcentered">
 		<div class="column is-one-fifth">
-		<img style="border-radius: 50%" src="{{ page.meta.author_img }}" alt="">
+			<figure class="image is-32x32">
+				<img class="is-rounded" src="{{ page.meta.author_img }}">
+			  </figure>
 		</div>
 		<div class="column">
 			<span class="content">Written By <strong>{{ page.meta.author_name }}</strong></span>
