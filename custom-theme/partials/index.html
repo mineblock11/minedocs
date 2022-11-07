@@ -18,7 +18,7 @@
             {% for page_item in pages %}
                 {% if "guide" in page_item.url %}
                     <div class="column is-one-third is-parent is-flex">
-                                <a href="{{ page_item.url }}" class="box notification is-child is-vertical">
+                                <a href="{{ page_item.url }}" class="container box notification is-child is-vertical">
                                     <h4 class="subtitle is-capitalized">{{ page_item.page.title }} {{ diffBadge(page_item.page.meta.difficulty, "is-small is-family-primary lowertag content") }}</h4>
                                     <div style="margin: 0" class="columns is-mobile is-centered is-vcentered">
                                         <div class="column is-one-fifth">
