@@ -8,36 +8,7 @@
       </p>
     </div>
     <hr />
-</section>
-
-<section class="section">
-    <div class="container">
-        <h1 class="title">Guides</h1>
-        <p class="content">These guides have been created by members of the community, you can contribute your own guides <a href="https://github.com/11mods/minedocs/" target="_blank">by making a PR to the GitHub</a></p>
-        <div class="columns is-desktop is-multiline is-ancestor">
-            {% for page_item in pages %}
-                {% if "guide" in page_item.url %}
-                    <div class="column is-one-third is-parent is-flex">
-                                <a href="{{ page_item.url }}" class="container box notification is-child is-vertical">
-                                    <h4 class="subtitle is-capitalized">{{ page_item.page.title }} {{ diffBadge(page_item.page.meta.difficulty, "is-small is-family-primary lowertag content") }}</h4>
-                                    <div style="margin: 0" class="columns is-mobile is-centered is-vcentered">
-                                        <div class="column is-one-fifth">
-                                            <figure class="image is-32x32">
-                                                <img class="is-rounded" src="{{ page_item.page.meta.author_img }}">
-                                              </figure>
-                                        </div>
-                                        <div class="column">
-                                            <span class="content">Written By <strong>{{ page_item.page.meta.author_name }}</strong></span>
-                                        </div>
-                                    </div>
-                                    <p class="content">{{ page_item.page.meta.description }}</p>
-                                </a>
-                    </div>
-                {% endif %}
-            {% endfor %}
-        </div>
-    </div>
-</section>
+</section> 
 
 <section class="section">
     <div class="container">

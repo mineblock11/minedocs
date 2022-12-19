@@ -21,15 +21,15 @@
         <title>minedocs</title>
         <meta property="og:title" content="minedocs" />
         <meta property="og:description" content="Community curated guides, and documentation plus wikis for mineblock11's mods."/>
-        <meta property="og:image" content="https://github.com/11mods.png" />
+        <meta property="og:image" content="https://github.com/mineblock11.png" />
     {% endif %}
 
-    <link rel="icon" type="image/x-icon" href="https://github.com/11mods.png">
+    <link rel="icon" type="image/x-icon" href="https://github.com/mineblock11.png">
 
     <!-- CSS/JS -->
+    <link rel="stylesheet" href="{{ '/css/theme.css'|url }}">
     <link rel="stylesheet" href="{{ '/assets/css/bulma.min.css'|url }}">
     <link rel="stylesheet" href="/node_modules/bulma-quickview/dist/css/bulma-quickview.min.css">
-    <link rel="stylesheet" href="{{ '/css/theme.css'|url }}">
     <link rel="stylesheet" href="/css/styles/github-dark.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
     <script src="/js/highlight.min.js"></script>
@@ -117,10 +117,6 @@
     <!-- Home Page -->
     {% include 'partials/index.html' %}
 
-    <footer class="footer">
-        {% include 'partials/footer.html' %}
-    </footer>
-
     {% else %}
 
         <section class="section">
@@ -152,10 +148,6 @@
                 </div>
             </div>
         </section>
-
-    <footer class="footer">
-        {% include 'partials/footer.html' %}
-    </footer>
 
     {% endif %}
 

@@ -1,4 +1,6 @@
 
+@import"https://fonts.googleapis.com/css2?family=Assistant&display=swap";
+
 ::placeholder { color: #879092; opacity: 1;}
 
 html,
@@ -108,6 +110,16 @@ pre, code {
 
 td.hljs-ln-line {
 	border: none !important;
+}
+
+body,
+button,
+input,
+optgroup,
+select,
+textarea, .title, .content, .subtitle, p, h1, h2, h3, h4, h5, h6 {
+ font-family:Assistant,sans-serif;
+ color: white !important;
 }
 
 .navbar-custom-button:hover{
